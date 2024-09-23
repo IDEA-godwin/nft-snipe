@@ -1,0 +1,1 @@
+A telegram bot that helps you snipe nft on launch day

@@ -1,0 +1,28 @@
+{
+  "name": "wallet-bot-ts",
+  "version": "0.1.0",
+  "description": "A telegram bot to help snipe nft on launch",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "telegraf": "^4.16.3"
+  },
+  "devDependencies": {
+    "@types/node": "^22.5.5",
+    "typescript": "^5.6.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/IDEA-godwin/nft-snipe.git"
+  },
+  "author": "Godwin Igwurube",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IDEA-godwin/nft-snipe/issues"
+  }
+}
