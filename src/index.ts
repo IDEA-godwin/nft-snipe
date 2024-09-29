@@ -39,7 +39,7 @@ bot.command('password', async ctx => {
 
 bot.on('callback_query', async (ctx) => {
     const query: any = ctx.callbackQuery
-    const result = executeAction(query.data);
+    const result = executeAction(query.data, user);
     ctx.reply(result.text, {
         reply_markup: result.keyboard
     })

@@ -1,3 +1,4 @@
+import { createUmi } from "@metaplex-foundation/umi-bundle-defaults";
 import { Keypair } from "@solana/web3.js";
 import * as bip39 from "bip39";
 
@@ -13,5 +14,17 @@ export const getKeypair = (password: string, mnemonic: string) => {
 export const createNewKeypair = (password: string) => {
     const generateMnemonic = bip39.generateMnemonic();
     return getKeypair(password, generateMnemonic)
+}
+
+export class SolanaNFT {
+
+    umi;
+
+    constructor() {
+        this.umi = createUmi('https://api.testnet.solana.com')
+    }
+
+    
+
 }
  
