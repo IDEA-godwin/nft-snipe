@@ -3,21 +3,28 @@ import { InlineKeyboardMarkup } from "telegraf/typings/core/types/typegram";
 export const StartMenu: InlineKeyboardMarkup = {
     inline_keyboard: [
         [
-            { callback_data: "wallets", text: "Wallets" },
-            { callback_data: "watchlist", text: "Watchlist" }
+            { callback_data: "start_wal:wallets", text: "Wallets" },
+            { callback_data: "start_wat:watchlist", text: "Watchlist" }
         ]
     ]
 }
 
-export const WalletMenu: InlineKeyboardMarkup = {
-    inline_keyboard: [
-        [
-            { callback_data: "create wallet", text: "Create new wallet" },
-            { callback_data: "import", text: "Import by seed phrase" }
-        ],
-        [ { callback_data: "view all", text: "View all wallets" } ]
-    ]
+export const createAccountsKeyboard = (wallets: any[]): InlineKeyboardMarkup => {
+    const inline_keyboard = wallets.map(value => [
+        {callback_data: `acct:${value.account.address}`, text: `${value.account.address}${value.default ? ' (default)' : ''}`}
+    ])
+    return {
+        inline_keyboard
+    }
 }
+
+export const createAcctBoard = (acct: string, isDefault: boolean): InlineKeyboardMarkup => {
+    let inline_keyboard = [
+        [{ callback_data: `balance:${acct}`, text: 'Check Balance' }]
+    ]
+    if (!isDefault) inline_keyboard.push([{ callback_data: `default:${acct}`, text: 'Make Default' }])
+    return { inline_keyboard }
+} 
 
 export const WatchlistMenu: InlineKeyboardMarkup = {
     inline_keyboard: [
