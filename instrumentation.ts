@@ -9,7 +9,6 @@ export async function register() {
       return
    }
    const bot = (await import('@/bot')).Bot();
-   const schedule = (await import('@/bot/cron-job')).BotSchedule()
 
    bot.launch({
       webhook: {
@@ -18,7 +17,4 @@ export async function register() {
          secretToken: BOT_TOKEN.split(':')[1]
       }
    }, () => {console.log('bot launched')})
-
-   schedule.start()
-
 }
